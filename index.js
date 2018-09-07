@@ -1,0 +1,1 @@
+console.log("usage: babel-node <operator>");
