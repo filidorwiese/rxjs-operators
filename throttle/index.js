@@ -1,11 +1,13 @@
 import { fromStdIn } from '../utility'
-import { timer } from 'rxjs'
-import { throttle } from 'rxjs/operators'
+import { throttle, filter } from 'rxjs/operators'
+
+// Discards values until inner observable emits, keeps first value (inverted debounce)
+// Usecase: prevent multiple form submit button clicks
 
 fromStdIn()
   .pipe(
     throttle(
-      () => timer(250)    // uses factory function
+      () => fromStdIn().pipe(filter(k => k === 'p'))    // Emit next value after p
     )
   )
   .subscribe(console.log)
