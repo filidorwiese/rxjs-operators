@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "serve": "webpack-dev-server",
+    "exec": "babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
